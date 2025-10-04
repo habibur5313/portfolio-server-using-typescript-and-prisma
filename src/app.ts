@@ -4,6 +4,7 @@ import express from "express";
 import { userRouter } from "./modules/user/user.route";
 import { authRouter } from "./modules/auth/auth.route";
 import { postRouter } from "./modules/post/post.route";
+import { projectRouter } from "./modules/project/project.route";
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(
 
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/post", postRouter);
+app.use("/api/v1/project", projectRouter);
 app.use("/api/v1/auth", authRouter);
 
 // Default route for testing

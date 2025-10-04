@@ -26,6 +26,7 @@ model User {
   createdAt  DateTime   @default(now())
   updatedAt  DateTime   @updatedAt
   posts      Post[]
+  project    Project[]
 }
 
 model Post {
@@ -40,6 +41,28 @@ model Post {
   author     User     @relation(fields: [authorId], references: [id])
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+}
+
+model Project {
+  id               Int      @id @default(autoincrement())
+  projectName      String
+  projectCategory  String
+  description      String
+  liveLink         String
+  githubLink       String
+  githubLinkServer String
+  image            String
+  feature          String
+  technologyUsed   String[]
+  npmPackageUsed   String[]
+  endDate   String
+  startDate String
+  isFeatured Boolean  @default(false)
+  views     Int      @default(0)
+  authorId  Int
+  author    User     @relation(fields: [authorId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 enum Role {
