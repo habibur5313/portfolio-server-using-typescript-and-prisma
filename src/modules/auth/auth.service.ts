@@ -19,7 +19,7 @@ const loginWithEmailAndPassword = async ({ email, password }: { email: string, p
   }
 
   // check role
-  if (user.role !== "ADMIN") {
+  if (user.role !== "ADMIN" && user.role !== "SUPER_ADMIN") {
     throw new Error("This user not an admin only admin can logged in");
   }
 
